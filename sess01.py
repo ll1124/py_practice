@@ -122,8 +122,8 @@
 
 #############################################################################
 # CONDITIONAL STATEMENTS
-someInt = 10 # Pick an int of your choice
-mod_someInt = someInt % 2
+# someInt = 10 # Pick an int of your choice
+# mod_someInt = someInt % 2
 # if mod_someInt == 1: # This part is called a "header"
 	# print("someInt is an odd number")
 # else:
@@ -161,12 +161,35 @@ mod_someInt = someInt % 2
 
 # Let's say "a" indicates 1, "b" 2, ..., "z" 26. All othere characters are of
 # 0 value. How "big" is the following sentence - technically speaking, string.
-sent = "ars longa, vita brevis"
 
+sent = "ars longa, vita brevis"
+ls = []
+count = 97
 bigness = 0
+
+while len(ls) < 26:
+    ls.append(chr(count))
+    count += 1
+
+for i in sent:
+    try:
+        ls.index(i)
+        i = ord(i) - 96
+        bigness += i
+    except ValueError:
+        pass
+print(bigness)
+
+# sent = "ars longa, vita brevis"
+# p sent.split('').map { |e| e.ord > 122 || e.ord <97 ? 0 : e.ord - 96  }.sum
+
+
+sent = "ars longa, vita brevis"
+bigness = 0
+
 for i in sent:
     if i == " " or i == ",":
-        i = 0
+        pass
     else:
         i = ord(i) - 96
         bigness += i
